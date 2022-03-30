@@ -6,11 +6,13 @@ export const ThemeSelector = (props: any) => {
 
     useEffect(() => {
         let theme = localStorage.getItem("theme") as string;
-        if (!("theme" in localStorage)) {
+
+        if (typeof localStorage.getItem("theme") !== "string") {
             window.matchMedia("(prefers-color-scheme: dark)").matches ? setTheme("dark") : setTheme("light");
             localStorage.setItem("theme", theme);
         } else {
             setTheme(theme);
+            theme === "dark" ? document.querySelector("html")?.classList.add("dark") : null;
         }
     }, []);
 
