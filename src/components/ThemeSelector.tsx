@@ -16,22 +16,20 @@ export const ThemeSelector = (props: any) => {
         }
     }, []);
 
-    const changeTheme = () => {
-        if (theme === "light") {
-            localStorage.setItem("theme", "dark");
-            setTheme("dark");
-            document.querySelector("html")?.classList.add("dark");
-        } else {
-            localStorage.setItem("theme", "light");
-            setTheme("light");
-            document.querySelector("html")?.classList.remove("dark");
-        }
+    const changeTheme = (theme: string) => {
+        let newTheme = theme === "light" ? "dark" : "light";
+
+        localStorage.setItem("theme", newTheme);
+        setTheme(newTheme);
+        newTheme === "light"
+            ? document.querySelector("html")?.classList.remove("dark")
+            : document.querySelector("html")?.classList.add("dark");
     };
 
     return (
         <div
             className="transition-all duration-150 p-3 fixed right-0 top-0 mr-6 mt-6 cursor-pointer dark:text-white text-black rounded-md bg-opacity-0 hover:bg-opacity-25 bg-slate-400"
-            onClick={changeTheme}
+            onClick={() => changeTheme(theme)}
         >
             {theme === "light" ? (
                 <MoonIcon className="text-black w-6 h-6" />

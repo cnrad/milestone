@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { LinkButton } from "../components/LinkButton";
+import { GradientButton } from "../components/GradientButton";
 
 const Home: NextPage = () => {
     return (
@@ -15,13 +16,16 @@ const Home: NextPage = () => {
                         celebrate your achievements with a shareable card
                     </h2>
 
-                    <LinkButton href={"/"} background={"#6366f1"} className="w-48">
+                    <LinkButton href={"/"} background={"#6366f1"} className="dark:hidden max-w-[13rem]">
                         Create Your Own
                     </LinkButton>
+                    <GradientButton href={"/"} background={"#01010b"} className="hidden dark:block max-w-[13rem]">
+                        Create Your Own
+                    </GradientButton>
                 </div>
 
                 <div className="flex flex-col">
-                    <div className="flex items-center justify-center w-[30rem] h-[15rem] shadow-zinc-300 dark:shadow-gray-900 shadow-lg rounded-xl mb-8 border border-zinc-100 dark:border-zinc-800">
+                    <div className="flex items-center justify-center w-[30rem] h-[15rem] rounded-xl mb-8 border border-zinc-100 dark:border-zinc-800">
                         card
                     </div>
                 </div>
