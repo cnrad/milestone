@@ -1,12 +1,15 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeSelector } from "../components/ThemeSelector";
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <ThemeSelector />
-            <Component {...pageProps} />
+            <AnimatePresence exitBeforeEnter>
+                <Component {...pageProps} />
+            </AnimatePresence>
         </>
     );
 }
