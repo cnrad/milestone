@@ -21,7 +21,7 @@ const Home: NextPage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.5 }}
                     transition={{ duration: 0.3, ease: [0, 0.75, 0.6, 1] }}
-                    className="flex flex-col"
+                    className="flex flex-col w-1/3"
                 >
                     <h1 className="mb-6 font-extrabold text-5xl select-none">create your milestone</h1>
 

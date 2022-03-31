@@ -17,7 +17,7 @@ const Home: NextPage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.5 }}
                     transition={{ duration: 0.3, ease: [0, 0.75, 0.6, 1] }}
-                    className="flex flex-col"
+                    className="flex flex-col w-1/3"
                 >
                     <h1 className="mb-2 font-extrabold text-5xl select-none">milestone</h1>
                     <h2 className="text-zinc-800 dark:text-zinc-300 text-xl mb-10 select-none">
