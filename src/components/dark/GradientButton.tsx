@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ReactChild } from "react";
 import Link from "next/link";
-import { classNames } from "../lib/classNames";
+import { classNames } from "../../lib/classNames";
 import styled from "styled-components";
 
 interface GradientButtonProps {

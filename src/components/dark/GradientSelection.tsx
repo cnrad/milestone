@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ReactChild } from "react";
 import Link from "next/link";
-import { classNames } from "../lib/classNames";
+import { classNames } from "../../lib/classNames";
 import styled from "styled-components";
 
 interface GradientSelectionProps {
@@ -36,7 +36,7 @@ export const GradientSelection = ({
                     color2={color2}
                     background={selected ? `linear-gradient(30deg, ${color1}, ${color2})` : background}
                     onClick={onClick}
-                    className="px-7 py-3 select-none"
+                    className="select-none"
                 >
                     {children}
                 </Container>
@@ -48,12 +48,14 @@ export const GradientSelection = ({
 const Container = styled(motion.div)<{ background: string | undefined; color1: string; color2: string }>`
     position: relative;
     line-height: 1rem;
-    background: ${({ background }) => background ?? "#000"};
+    background: ${({ background }) => background ?? "#10101b"};
     padding: 1rem 1.25rem;
     color: #fff;
-    border-radius: 0.75rem;
+    border-radius: 0.35rem;
     text-align: center;
     white-space: nowrap;
+    padding: 0.75rem 2rem;
+    transition: all 0.1s ease-in-out;
 
     &:before {
         content: "";
@@ -62,7 +64,7 @@ const Container = styled(motion.div)<{ background: string | undefined; color1: s
         left: 0;
         right: 0;
         bottom: 0;
-        border-radius: 0.75rem;
+        border-radius: 0.35rem;
         border: 2px solid transparent;
         background: linear-gradient(45deg, ${({ color1 }) => color1}, ${({ color2 }) => color2}) border-box;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);

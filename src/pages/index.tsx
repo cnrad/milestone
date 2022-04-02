@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { LinkButton } from "../components/LinkButton";
-import { GradientButton } from "../components/GradientButton";
+import { LinkButton } from "../components/light/LinkButton";
+import { GradientButton } from "../components/dark/GradientButton";
 import { motion } from "framer-motion";
 
 const Home: NextPage = () => {

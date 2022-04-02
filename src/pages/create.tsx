@@ -1,13 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { LinkButton } from "../components/LinkButton";
-import { GradientButton } from "../components/GradientButton";
+import { LinkButton } from "../components/light/LinkButton";
+import { GradientButton } from "../components/dark/GradientButton";
 import { useState } from "react";
-import { GradientSelection } from "../components/GradientSelection";
+import { GradientSelection } from "../components/dark/GradientSelection";
 import { AnimatePresence, motion } from "framer-motion";
-
+import { InputArea } from "../components/InputArea";
+import { DropdownDark } from "../components/dark/DropdownDark";
+import { DropdownLight } from "../components/light/DropdownLight";
 const Home: NextPage = () => {
     const [tabState, setTabState] = useState<"twitter" | "github">("twitter");
+    const [twitterUsername, setTwitterUsername] = useState<string>("");
+    const [githubUsername, setGithubUsername] = useState<string>("");
 
     return (
         <>
@@ -23,13 +27,13 @@ const Home: NextPage = () => {
                     transition={{ duration: 0.3, ease: [0, 0.75, 0.6, 1] }}
                     className="flex flex-col w-1/3"
                 >
-                    <h1 className="mb-6 font-extrabold text-5xl select-none">create your milestone</h1>
+                    <h1 className="mb-6 font-extrabold text-4xl select-none">create your milestone</h1>
 
-                    <div className="flex flex-row gap-3 mb-24">
+                    <div className="flex flex-row gap-4 mb-8">
                         <GradientSelection
                             selected={tabState === "twitter"}
-                            color1={"#1db2f2"}
-                            color2={"#1d79f2"}
+                            color1={"#2942ff"}
+                            color2={"#28abfc"}
                             onClick={() => setTabState("twitter")}
                         >
                             Twitter
@@ -54,7 +58,22 @@ const Home: NextPage = () => {
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.2, ease: [0, 0.75, 0.6, 1] }}
                             >
-                                hello twitter
+                                <InputArea
+                                    title={"Username"}
+                                    placeholder={"username"}
+                                    onChange={(e: any) => setTwitterUsername(e.target.value)}
+                                    className="mb-4"
+                                />
+                                <DropdownDark
+                                    title="Milestone type"
+                                    options={["Tweets", "Followers"]}
+                                    className="hidden dark:block"
+                                />
+                                <DropdownLight
+                                    title="Milestone type"
+                                    options={["Tweets", "Followers"]}
+                                    className="dark:hidden"
+                                />
                             </motion.div>
                         )}
                         {tabState === "github" && (
@@ -65,15 +84,30 @@ const Home: NextPage = () => {
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.2, ease: [0, 0.75, 0.6, 1] }}
                             >
-                                hello github
+                                <InputArea
+                                    title={"Username"}
+                                    placeholder={"username/repo"}
+                                    onChange={(e: any) => setGithubUsername(e.target.value)}
+                                    className="mb-4"
+                                />
+                                <DropdownDark
+                                    title="Milestone type"
+                                    options={["Followers", "Stars"]}
+                                    className="hidden dark:block"
+                                />
+                                <DropdownLight
+                                    title="Milestone type"
+                                    options={["Followers", "Stars"]}
+                                    className="dark:hidden"
+                                />
                             </motion.div>
                         )}
                     </AnimatePresence>
 
-                    <LinkButton href={"/"} background={"#6366f1"} className="dark:hidden max-w-[13rem]">
+                    <LinkButton href={"/"} background={"#6366f1"} className="dark:hidden max-w-[13rem] mt-24">
                         Share
                     </LinkButton>
-                    <GradientButton href={"/"} background={"#01010b"} className="hidden dark:block max-w-[13rem]">
+                    <GradientButton href={"/"} background={"#01010b"} className="hidden dark:block max-w-[13rem] mt-24">
                         Share
                     </GradientButton>
                 </motion.div>
