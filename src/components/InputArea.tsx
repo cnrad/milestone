@@ -9,9 +9,10 @@ interface GradientSelectionProps {
     onChange?: (e: any) => any;
     placeholder: string;
     className?: string;
+    leftContent?: any;
 }
 
-export const InputArea = ({ title, onChange, placeholder, className }: GradientSelectionProps) => {
+export const InputArea = ({ title, onChange, placeholder, className, leftContent }: GradientSelectionProps) => {
     return (
         <div className={className}>
             <h3 className="uppercase font-bold text-zinc-700 text-xs mb-1">{title}</h3>
@@ -20,10 +21,10 @@ export const InputArea = ({ title, onChange, placeholder, className }: GradientS
                     "w-56 flex flex-row !bg-opacity-20 bg-white dark:bg-zinc-900 transition-all duration-75 border-2 dark:border border-blue-600 focus-within:border-blue-400 dark:border-zinc-800 dark:focus-within:border-zinc-400 rounded-md text-left px-1"
                 }
             >
-                <span className="p-2 flex items-center justify-center">@</span>
+                {leftContent ? <span className="pl-2 py-2 flex items-center justify-center">{leftContent}</span> : null}
                 <input
                     placeholder={placeholder}
-                    className={"outline-none text-left bg-transparent placeholder:text-zinc-500"}
+                    className={"p-2 outline-none text-left bg-transparent placeholder:text-zinc-500"}
                     onChange={onChange}
                 />
             </div>

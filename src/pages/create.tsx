@@ -12,6 +12,7 @@ const Home: NextPage = () => {
     const [tabState, setTabState] = useState<"twitter" | "github">("twitter");
     const [twitterUsername, setTwitterUsername] = useState<string>("");
     const [githubUsername, setGithubUsername] = useState<string>("");
+    const [milestoneCount, setMilestoneCount] = useState<string>("");
 
     return (
         <>
@@ -63,16 +64,22 @@ const Home: NextPage = () => {
                                     placeholder={"username"}
                                     onChange={(e: any) => setTwitterUsername(e.target.value)}
                                     className="mb-4"
+                                    leftContent={"@"}
                                 />
                                 <DropdownDark
                                     title="Milestone type"
                                     options={["Tweets", "Followers"]}
-                                    className="hidden dark:block"
+                                    className="hidden dark:block mb-4"
                                 />
                                 <DropdownLight
                                     title="Milestone type"
                                     options={["Tweets", "Followers"]}
-                                    className="dark:hidden"
+                                    className="dark:hidden mb-4"
+                                />
+                                <InputArea
+                                    title={"Milestone Count"}
+                                    placeholder={"number"}
+                                    onChange={(e: any) => setMilestoneCount(e.target.value)}
                                 />
                             </motion.div>
                         )}
@@ -89,16 +96,22 @@ const Home: NextPage = () => {
                                     placeholder={"username/repo"}
                                     onChange={(e: any) => setGithubUsername(e.target.value)}
                                     className="mb-4"
+                                    leftContent={"@"}
                                 />
                                 <DropdownDark
                                     title="Milestone type"
                                     options={["Followers", "Stars"]}
-                                    className="hidden dark:block"
+                                    className="hidden dark:block mb-4"
                                 />
                                 <DropdownLight
                                     title="Milestone type"
                                     options={["Followers", "Stars"]}
-                                    className="dark:hidden"
+                                    className="dark:hidden mb-4"
+                                />
+                                <InputArea
+                                    title={"Milestone Count"}
+                                    placeholder={"number"}
+                                    onChange={(e: any) => setMilestoneCount(e.target.value)}
                                 />
                             </motion.div>
                         )}
